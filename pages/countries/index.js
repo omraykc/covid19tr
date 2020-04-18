@@ -3,7 +3,6 @@ import useSWR from 'swr'
 
 import I18n from '../../components/i18n';
 import Layout from '../../components/layout';
-import Nav from '../../components/nav';
 import fetcher from '../../libs/fetcher'
 import { site_title } from '../../libs/config'
 
