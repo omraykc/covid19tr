@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import moment from 'moment';
 
@@ -7,8 +8,9 @@ import Nav from '../../components/nav';
 import fetcher from '../../libs/fetcher'
 import { site_title } from '../../libs/config'
 
-export default function Countries({ id, initialData }) {
-  const { data } = useSWR(`https://api.covid19api.com/live/country/${id}`, fetcher, { initialData })
+export default function Countries() {
+  const { query } = useRouter()
+  const { data: country } = useSWR(`https://api.covid19api.com/live/country/${query.id}`, fetcher, { refreshInterval: 60000 })
   return (
     <Layout title="">
       <main>
@@ -22,7 +24,7 @@ export default function Countries({ id, initialData }) {
             <div className="row">
 
               {/* */}
-              {data ?
+              {country ?
               <div className="col-12">
                 <div className="table-responsive">
                   <table className="table table-sm table-centered table-nowrap">
@@ -38,19 +40,19 @@ export default function Countries({ id, initialData }) {
                     <tbody>
 
                       {/* */}
-                      {data ? data
+                      {country ? country
                       .sort((a, b) => new Date(b.Date) - new Date(a.Date))
-                      .map((data,i) => (
+                      .map((country,i) => (
                       <tr className={"fs-14 color-1 fw-5 " +
-                        (moment(data.Date).format("YYYY/MM/DD") === moment(new Date().getTime()).format("YYYY/MM/DD") ? "bg-light-2" : "")}
+                        (moment(country.Date).format("YYYY/MM/DD") === moment(new Date().getTime()).format("YYYY/MM/DD") ? "bg-light-2" : "")}
                         key={i}>
                         <td className="p-2">
-                          <span>{I18n(data.Country)}{data.Province ? " - " + data.Province : ""}</span>
+                          <span>{I18n(country.Country)}{country.Province ? " - " + country.Province : ""}</span>
                         </td>
-                        <td className="p-2 text-right">{data.Confirmed.toLocaleString()}</td>
-                        <td className="p-2 text-right">{data.Recovered.toLocaleString()}</td>
-                        <td className="p-2 text-right">{data.Deaths.toLocaleString()}</td>
-                        <td className="p-2 text-right">{moment(data.Date).format("DD.MM.YYYY")}</td>
+                        <td className="p-2 text-right">{country.Confirmed.toLocaleString()}</td>
+                        <td className="p-2 text-right">{country.Recovered.toLocaleString()}</td>
+                        <td className="p-2 text-right">{country.Deaths.toLocaleString()}</td>
+                        <td className="p-2 text-right">{moment(country.Date).format("DD.MM.YYYY")}</td>
                       </tr>
                       )) : ""}
 
@@ -87,9 +89,4 @@ export default function Countries({ id, initialData }) {
       </main>
     </Layout>
   )
-}
-
-export async function getServerSideProps({ query }) {
-  const data = await fetcher(`https://api.covid19api.com/live/country/${query.id}`)
-  return { props: { initialData: data, country: query.id } }
 }
