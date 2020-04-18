@@ -5,12 +5,21 @@ import moment from 'moment';
 import I18n from '../../components/i18n';
 import Layout from '../../components/layout';
 import Nav from '../../components/nav';
-import fetch from '../../libs/fetch'
 import { site_title } from '../../libs/config'
+
+const fetcher = async url => {
+  const res = await fetch(url)
+  const data = await res.json()
+
+  if (res.status !== 200) {
+    throw new Error(data.message)
+  }
+  return data
+}
 
 export default function Countries() {
   const { query } = useRouter()
-  const { data: country } = useSWR(`https://api.covid19api.com/live/country/${query.id}`, fetch, { refreshInterval: 60000 })
+  const { data: country } = useSWR(() => query.id && `https://api.covid19api.com/live/country/${query.id}`, fetcher, { refreshInterval: 60000 })
   return (
     <Layout title="">
       <main>
