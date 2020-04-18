@@ -1,0 +1,4 @@
+## nextjs build
+[build]
+  command = "npm run export"
+  publish = "out"

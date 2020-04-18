@@ -1,0 +1,6 @@
+export const site_title = "COVİD-19"
+export const site_url = "https://covid19tr.netlify.com"
+export const site_description = ""
+export const site_image = ""
+export const verification_google = ""
+export const verification_yandex = ""
