@@ -99,7 +99,7 @@ export default function Index() {
                 <h6 className="mb-3 color-2 fw-5">Türkiye</h6>
                 <div className="d-flex justify-content-between align-items-center fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
                   <span>Toplam Vaka Sayısı</span>
-                  <Link href="/countries/turkey">
+                  <Link href={`/countries/[id]`} as={`/countries/turkey`}>
                     <i className="fas fa-long-arrow-alt-right i-link"></i>
                   </Link>
                 </div>

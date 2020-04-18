@@ -8,14 +8,14 @@ import fetcher from '../../libs/fetcher'
 import { site_title } from '../../libs/config'
 
 export default function Countries() {
-  const { query } = useRouter()
-  const { data } = useSWR(`https://api.covid19api.com/live/country/${query.id}`, fetcher, { refreshInterval: 60000 })
+  const router = useRouter()
+  const { data } = useSWR(`https://api.covid19api.com/live/country/${router.query.id}`, fetcher, { refreshInterval: 60000 })
   return (
     <Layout title="">
       <section>
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">
-            <h5 className="mb-0">{site_title}</h5>
+            <h5 className="mb-0">{site_title} / {router.query.id}</h5>
           </div>
           <hr className="mt-0"></hr>
         </div>
