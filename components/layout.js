@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router'
+
+import Nav from '../components/nav';
 import { site_title, site_url, site_description, site_image, verification_google, verification_yandex } from '../libs/config'
 
 export default function Layout({ title, children }) {
@@ -32,7 +34,16 @@ export default function Layout({ title, children }) {
         <link href={site_url + router.pathname} rel="canonical"/>
         <link href="/favicon.svg" rel="shortcut icon"/>
       </Head>
-      {children}
+      <Nav/>
+      <main className="page-container">
+        {children}
+      </main>
+      <style jsx>{`
+      .page-container{margin-inline-start: 62.5px;}
+      @media (max-width: 768px){
+        .page-container{margin-inline-start: 0px;}
+      }
+      `}</style>
     </>
   )
 }

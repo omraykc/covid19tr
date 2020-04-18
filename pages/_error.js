@@ -1,36 +1,32 @@
 import Layout from '../components/layout';
-import Nav from '../components/nav';
 import { site_title } from '../libs/config'
 
 export default function Error() {
   return (
     <Layout title="404">
-      <main className="positon-relative">
-        <Nav/>
-        <section className="pt-4 pl-5 ml-3">
-          <div className="container-fluid">
-            <h5>{site_title} / 404</h5>
-            <hr className="mt-4"></hr>
+      <section>
+        <div className="container-fluid">
+          <div className="d-flex justify-content-between align-items-center py-4">
+            <h5 className="mb-0">{site_title} / 404</h5>
           </div>
-        </section>
-        <section className="pl-5 ml-3">
-          <div className="container">
-            <div className="row">
+          <hr className="mt-0"></hr>
+        </div>
+        <div className="container">
+          <div className="row">
 
-              {/* */}
-              <div className="col-12">
-                <div className="text-center">
-                  <p className="fs-14 mb-0">Aradığın sayfayı bulamadık.</p>
-                </div>
+            {/* */}
+            <div className="col-12">
+              <div className="text-center">
+                <p className="fs-14 mb-0">Aradığın sayfayı bulamadık.</p>
               </div>
-
             </div>
+
           </div>
-        </section>
+        </div>
         <style jsx>{`
         .fs-14{font-size:14px}
         `}</style>
-      </main>
+      </section>
     </Layout>
   )
 }

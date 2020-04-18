@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 export default function Nav() {
   const router = useRouter()
   return (
-    <section className="d-flex flex-row flex-md-column position-fixed sidebar bg-dark-2 min-vh-100 vh-100">
+    <nav className="d-flex flex-row flex-md-column position-fixed sidebar bg-dark-2 min-vh-100 vh-100">
       <div className="d-flex flex-row flex-md-column justify-content-center">
         <Link href="/">
           <div className="logo bg-white border-right px-3 py-3 py-md-4">
@@ -25,14 +25,14 @@ export default function Nav() {
       <style jsx>{`
       .logo{cursor: pointer}
       .s-menu{position: relative;cursor: pointer}
-      .s-menu.active:before{content: "";position: absolute;background: #ffffff52;height: 35px;width: 35px;top: 6px;left: 13px;border-radius: 2.5px;}
+      .s-menu.active:before{content: "";position: absolute;background: #ffffff52;height: 35px;width: 35px;top: 6px;left: 13px;border-radius: 2.5px}
       .fs-15{font-size: 15px}
-      .bg-dark-2{background-color: #000;}
+      .bg-dark-2{background-color: #000}
       @media (max-width: 768px){
-      .sidebar{position: relative!important;min-height: inherit!important;height: inherit!important;}
-      .s-menu.active:before{height: 30px;width: 30px;top: 13px;left: 9px;}
+        .sidebar{position: relative!important;min-height: inherit!important;height: inherit!important}
+        .s-menu.active:before{height: 30px;width: 30px;top: 13px;left: 9px}
       }
       `}</style>
-    </section>
+    </nav>
   )
 }
