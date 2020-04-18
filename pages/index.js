@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import useSWR from 'swr'
 import moment from 'moment';
 
@@ -45,7 +46,12 @@ export default function Index() {
               <div className="col-12 col-md-6 global-data border-right">
                 <div className="p-2 my-1 rounded-0">
                   <h6 className="mb-3 color-2 fw-5">Dünya</h6>
-                  <span className="fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">Toplam Vaka Sayısı</span>
+                  <div className="d-flex justify-content-between fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
+                    <span>Toplam Vaka Sayısı</span>
+                    {/*
+                    <span></span>
+                    */}
+                  </div>
                   <div className="h2 color-1 mb-0 font-weight-bold">{global.cases.toLocaleString()}</div>
 
                   {global ?
@@ -94,7 +100,12 @@ export default function Index() {
               <div className="col-12 col-md-6">
                 <div className="p-2 my-1 rounded-0">
                   <h6 className="mb-3 color-2 fw-5">Türkiye</h6>
-                  <span className="fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">Toplam Vaka Sayısı</span>
+                  <div className="d-flex justify-content-between align-items-center fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
+                    <span>Toplam Vaka Sayısı</span>
+                    <Link href="/countries/turkey">
+                      <i className="fas fa-long-arrow-alt-right i-link"></i>
+                    </Link>
+                  </div>
                   <div className="h2 color-1 mb-0 font-weight-bold">{turkey.cases.toLocaleString()}</div>
                   <div className="progress my-3" style={{ height: '5px' }}>
                     <div className="progress-bar bg-warning" style={{ width: (turkey.active / turkey.cases * 100).toFixed(2) + "%"  }}></div>
@@ -158,13 +169,14 @@ export default function Index() {
         .fw-7{font-weight:700}
         .color-1{color: #364a63}
         .color-2{color:#5e7ea9}
-        .bg-light-2{background-color: #edeeef;}
+        .i-link{cursor:pointer}
+        .bg-light-2{background-color: #edeeef}
         .table .flag{width:21px}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}
         .letter-spacing-1{letter-spacing: 0.2em}
         @media (max-width: 768px){
-          .global-data{padding-bottom: 1.5rem!important;margin-bottom: 1.5rem!important;border-bottom: 1px solid #dee2e6!important;border-right: 0!important;}
+          .global-data{padding-bottom: 1.5rem!important;margin-bottom: 1.5rem!important;border-bottom: 1px solid #dee2e6!important;border-right: 0!important}
         }
         `}</style>
       </main>
