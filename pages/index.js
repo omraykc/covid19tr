@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import Layout from '../components/layout';
 import Nav from '../components/nav';
-import fetch from '../libs/fetch'
+import fetcher from '../libs/fetcher'
 import { site_title } from '../libs/config'
 
 const timeConvert = (date) => {
@@ -21,8 +21,8 @@ const timeConvert = (date) => {
 }
 
 export default function Index() {
-  const { data: global } = useSWR("https://corona.lmao.ninja/v2/all", fetch, { refreshInterval: 60000 })
-  const { data: turkey } = useSWR("https://corona.lmao.ninja/v2/countries/tr", fetch, { refreshInterval: 60000 })
+  const { data: global } = useSWR("https://corona.lmao.ninja/v2/all", fetcher, { refreshInterval: 60000 })
+  const { data: turkey } = useSWR("https://corona.lmao.ninja/v2/countries/tr", fetcher, { refreshInterval: 60000 })
   return (
     <Layout title="Anasayfa">
       <main>

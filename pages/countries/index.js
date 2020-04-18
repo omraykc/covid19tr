@@ -4,11 +4,11 @@ import useSWR from 'swr'
 import I18n from '../../components/i18n';
 import Layout from '../../components/layout';
 import Nav from '../../components/nav';
-import fetch from '../../libs/fetch'
+import fetcher from '../../libs/fetcher'
 import { site_title } from '../../libs/config'
 
 export default function Countries() {
-  const { data: countries } = useSWR("https://api.covid19api.com/summary", fetch, { refreshInterval: 60000 })
+  const { data: countries } = useSWR("https://api.covid19api.com/summary", fetcher, { refreshInterval: 60000 })
   return (
     <Layout title="Ülkeler">
       <main>
