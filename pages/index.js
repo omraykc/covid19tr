@@ -8,10 +8,13 @@ import fetcher from '../libs/fetcher'
 
 const timeConvert = (date) => {
   var timeDifference = Math.floor(((new Date().getTime() / 1000) - date));
+  var second = timeDifference;
   var minute = Math.floor(timeDifference / 60);
   var hour = Math.floor(timeDifference / 3600);
   var day = Math.floor(timeDifference / 86400);
-  if (minute < 60) {
+  if(second < 60){
+    return "yeni güncellendi";
+  } else if (minute < 60) {
     return minute + " dk önce güncellendi";
   } else if (hour < 24)
     return hour + " sa önce güncellendi";
