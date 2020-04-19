@@ -3,8 +3,8 @@ import useSWR from 'swr'
 import moment from 'moment';
 
 import Layout from '../components/layout';
+import { site_title } from '../components/config'
 import fetcher from '../libs/fetcher'
-import { site_title } from '../libs/config'
 
 const timeConvert = (date) => {
   var timeDifference = Math.floor(((new Date().getTime() / 1000) - date));
@@ -27,12 +27,29 @@ export default function Index() {
       <section>
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">
-            <h5 className="mb-0">{site_title} / İzleyici</h5>
+            <h5 className="mb-0">{site_title}</h5>
             {global && turkey ?
             <p className="mb-0 fs-13 text-muted">{timeConvert(moment(global ? global.updated : "").unix())}</p>
             : ""}
           </div>
           <hr className="mt-0"></hr>
+        </div>
+
+        {/* */}
+        <div className="landing position-relative mb-3">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+
+                {/* */}
+                <div className="py-5">
+                  <h1 className="mb-3 h4">Yeni Koronavirüs Hastalığı (COVID-19)</h1>
+                  <p className="mb-0 fs-14 w-50 text-white-50">Koronavirusler (CoV), soğuk algınlığından Orta Doğu Solunum Sendromu (MERS-CoV) ve Şiddetli Akut Solunum Sendromu (SARS-CoV) gibi daha ciddi hastalıklara kadar çeşitli hastalıklara neden olan büyük bir virüs ailesidir. </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
 
         {global && turkey ?
@@ -167,7 +184,10 @@ export default function Index() {
         .color-2{color:#5e7ea9}
         .i-link{cursor:pointer}
         .bg-light-2{background-color: #edeeef}
-        .table .flag{width:21px}
+        .flag{width:21px}
+        .landing:before{content: "";position: absolute;background: url(https://costar-react.now.sh/images/slider-img1.jpg);width: 100%;height: 100%;background-position: center;}
+        .landing h1{color:#fff}
+        .landing img{height: 250px;width: 100%;object-fit: cover;object-position: center}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}
         .letter-spacing-1{letter-spacing: 0.2em}

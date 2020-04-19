@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router'
 
 import Nav from '../components/nav';
-import { site_title, site_url, site_description, site_image, verification_google, verification_yandex } from '../libs/config'
+import { site_title, site_url, site_description, site_image, verification_google, verification_yandex } from '../components/config'
 
 export default function Layout({ title, children }) {
   const router = useRouter()
@@ -39,9 +39,9 @@ export default function Layout({ title, children }) {
         {children}
       </main>
       <style jsx>{`
-      .page-container{margin-inline-start: 62.5px;}
+      .page-container{margin-left: 65px;}
       @media (max-width: 768px){
-        .page-container{margin-inline-start: 0px;}
+        .page-container{margin-left: 0px;}
       }
       `}</style>
     </>

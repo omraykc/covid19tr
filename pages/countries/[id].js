@@ -4,8 +4,8 @@ import moment from 'moment';
 
 import I18n from '../../components/i18n';
 import Layout from '../../components/layout';
+import { site_title } from '../../components/config'
 import fetcher from '../../libs/fetcher'
-import { site_title } from '../../libs/config'
 
 export default function Countries() {
   const router = useRouter()

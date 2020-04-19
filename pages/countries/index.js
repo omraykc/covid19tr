@@ -3,8 +3,8 @@ import useSWR from 'swr'
 
 import I18n from '../../components/i18n';
 import Layout from '../../components/layout';
+import { site_title } from '../../components/config'
 import fetcher from '../../libs/fetcher'
-import { site_title } from '../../libs/config'
 
 export default function Countries() {
   const { data: countries } = useSWR("https://api.covid19api.com/summary", fetcher, { refreshInterval: 60000 })
