@@ -44,7 +44,7 @@ export default function Index() {
                 {/* */}
                 <div className="py-5">
                   <h1 className="mb-3 h4">Yeni Koronavirüs Hastalığı (COVID-19)</h1>
-                  <p className="mb-0 fs-14 w-50 text-white-50">Koronavirusler (CoV), soğuk algınlığından Orta Doğu Solunum Sendromu (MERS-CoV) ve Şiddetli Akut Solunum Sendromu (SARS-CoV) gibi daha ciddi hastalıklara kadar çeşitli hastalıklara neden olan büyük bir virüs ailesidir. </p>
+                  <p className="mb-0 fs-14 l-desc text-white-50">Koronavirusler (CoV), soğuk algınlığından Orta Doğu Solunum Sendromu (MERS-CoV) ve Şiddetli Akut Solunum Sendromu (SARS-CoV) gibi daha ciddi hastalıklara kadar çeşitli hastalıklara neden olan büyük bir virüs ailesidir. </p>
                 </div>
 
               </div>
@@ -182,16 +182,17 @@ export default function Index() {
         .fw-7{font-weight:700}
         .color-1{color: #364a63}
         .color-2{color:#5e7ea9}
+        .l-desc{width: 70%}
         .i-link{cursor:pointer}
         .bg-light-2{background-color: #edeeef}
-        .flag{width:21px}
-        .landing:before{content: "";position: absolute;background: url(https://costar-react.now.sh/images/slider-img1.jpg);width: 100%;height: 100%;background-position: center;}
+        .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
         .landing h1{color:#fff}
         .landing img{height: 250px;width: 100%;object-fit: cover;object-position: center}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}
         .letter-spacing-1{letter-spacing: 0.2em}
         @media (max-width: 768px){
+          .l-desc{width: 100%}
           .global-data{padding-bottom: 1.5rem!important;margin-bottom: 1.5rem!important;border-bottom: 1px solid #dee2e6!important;border-right: 0!important}
         }
         `}</style>
