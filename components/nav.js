@@ -7,8 +7,8 @@ export default function Nav() {
     <nav className="d-flex flex-row flex-md-column position-fixed sidebar bg-dark-2 h-100">
       <div className="d-flex flex-row flex-md-column h-100">
         <Link href="/">
-          <div className="logo bg-white border-right px-3 py-3 py-md-4 mb-0 mb-md-3">
-            <i className="fas fa-virus fa-lg mx-1"></i>
+          <div className="d-flex logo justify-content-center bg-white border-right px-3 py-3 py-md-4 mb-0 mb-md-3">
+            <i className="fas fa-virus"></i>
           </div>
         </Link>
         <Link href="/countries">
@@ -29,6 +29,7 @@ export default function Nav() {
       </div>
       <style jsx>{`
       .logo{cursor: pointer}
+      .logo i{font-size:24px}
       .sidebar{width:65px}
       .s-menu{position: relative;cursor: pointer}
       .s-menu.active{background: #ffffff52}
