@@ -12,7 +12,7 @@ export default function Countries() {
   const router = useRouter()
   const { data } = useSWR(`https://api.covid19api.com/live/country/${router.query.id}`, fetcher, { refreshInterval: 60000 })
   return (
-    <Layout title="">
+    <Layout>
       <section>
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">

@@ -41,6 +41,12 @@ export default function Nav() {
         .s-menu.active:before{height: 30px;width: 30px;top: 13px;left: 9px}
       }
       `}</style>
+      <style global jsx>{`
+      .page-container{margin-left: 65px;}
+      @media (max-width: 768px){
+        .page-container{margin-left: 0px;}
+      }
+      `}</style>
     </nav>
   )
 }

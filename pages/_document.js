@@ -4,10 +4,10 @@ export default class Covid19tr extends Document {
   render() {
     return (
       <Html lang="tr">
-        <Head />
+        <Head/>
         <body>
-          <Main />
-          <NextScript />
+          <Main/>
+          <NextScript/>
         </body>
       </Html>
     )
