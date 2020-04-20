@@ -36,7 +36,7 @@ export default function Layout({ title, children }) {
       <main className="page-container">
         {children}
       </main>
-      <style global>{`
+      <style jsx>{`
       .page-container{margin-left: 65px;}
       @media (max-width: 768px){
         .page-container{margin-left: 0px;}
