@@ -1,5 +1,5 @@
 import Layout from '../components/layout';
-import { site_title } from '../libs/config'
+import { site_title } from '../lib/constants'
 
 export default function Error() {
   return (

@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router'
 
 import Nav from '../components/nav';
-import { site_title, site_url, site_description, site_image, verification_google, verification_yandex } from '../libs/config'
+import { site_title, site_url, site_description, site_image, verification_google } from '../lib/constants'
 
 export default function Layout({ title, children }) {
   const router = useRouter()
   return (
-    <>
+    <React.Fragment>
       <Head>
         <title>{title ? title + ' | ' + site_title : site_title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -29,7 +29,6 @@ export default function Layout({ title, children }) {
         <meta name="application-name" content={title ? title + ' | ' + site_title : site_title}/>
         <meta name="apple-mobile-web-app-title" content={title ? title + ' | ' + site_title : site_title}/>
         <meta name="google-site-verification" content={verification_google}/>
-        <meta name="yandex-verification" content={verification_yandex}/>
         {/* */}
         <link href={site_url + router.pathname} rel="canonical"/>
         <link href="/favicon.svg" rel="shortcut icon"/>
@@ -38,12 +37,6 @@ export default function Layout({ title, children }) {
       <main className="page-container">
         {children}
       </main>
-      <style jsx>{`
-      .page-container{margin-inline-start: 62.5px;}
-      @media (max-width: 768px){
-        .page-container{margin-inline-start: 0px;}
-      }
-      `}</style>
-    </>
+    </React.Fragment>
   )
 }

@@ -1,17 +1,18 @@
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
-import moment from 'moment';
+import moment from 'moment'
 
-import I18n from '../../components/i18n';
-import Layout from '../../components/layout';
-import fetcher from '../../libs/fetcher'
-import { site_title } from '../../libs/config'
+import Layout from '../../components/layout'
+
+import { site_title } from '../../lib/constants'
+import I18n from '../../lib/i18n'
+import fetcher from '../../lib/fetcher'
 
 export default function Countries() {
   const router = useRouter()
   const { data } = useSWR(`https://api.covid19api.com/live/country/${router.query.id}`, fetcher, { refreshInterval: 60000 })
   return (
-    <Layout title="">
+    <Layout>
       <section>
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">
