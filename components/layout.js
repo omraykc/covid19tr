@@ -7,7 +7,7 @@ import { site_title, site_url, site_description, site_image, verification_google
 export default function Layout({ title, children }) {
   const router = useRouter()
   return (
-    <>
+    <React.Fragment>
       <Head>
         <title>{title ? title + ' | ' + site_title : site_title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -31,12 +31,12 @@ export default function Layout({ title, children }) {
         <meta name="google-site-verification" content={verification_google}/>
         {/* */}
         <link href={site_url + router.pathname} rel="canonical"/>
-        <link href="/favicon.ico" rel="shortcut icon"/>
+        <link href="/favicon.svg" rel="shortcut icon"/>
       </Head>
       <Nav/>
       <main className="page-container">
         {children}
       </main>
-    </>
+    </React.Fragment>
   )
 }

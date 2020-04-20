@@ -8,9 +8,9 @@ import '@fortawesome/fontawesome-free/css/solid.min.css';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <React.Fragment>
       <Component {...pageProps} />
       <NProgress />
-    </>
+    </React.Fragment>
   );
 }
