@@ -3,8 +3,8 @@ import useSWR from 'swr'
 import moment from 'moment';
 
 import Layout from '../components/layout';
-import { site_title } from '../components/config'
-import fetcher from '../libs/fetcher'
+import { site_title } from '../lib/constants'
+import fetcher from '../lib/fetcher'
 
 const timeConvert = (date) => {
   var timeDifference = Math.floor(((new Date().getTime() / 1000) - date));

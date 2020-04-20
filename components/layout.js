@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router'
 
 import Nav from '../components/nav';
-import { site_title, site_url, site_description, site_image, verification_google, verification_yandex } from '../components/config'
+import { site_title, site_url, site_description, site_image } from '../lib/constants'
 
 export default function Layout({ title, children }) {
   const router = useRouter()
@@ -28,17 +28,15 @@ export default function Layout({ title, children }) {
         <meta name="twitter:image:alt" content={site_title}/>
         <meta name="application-name" content={title ? title + ' | ' + site_title : site_title}/>
         <meta name="apple-mobile-web-app-title" content={title ? title + ' | ' + site_title : site_title}/>
-        <meta name="google-site-verification" content={verification_google}/>
-        <meta name="yandex-verification" content={verification_yandex}/>
         {/* */}
         <link href={site_url + router.pathname} rel="canonical"/>
         <link href="/favicon.svg" rel="shortcut icon"/>
       </Head>
-      <Nav/>
+      <Nav />
       <main className="page-container">
         {children}
       </main>
-      <style jsx>{`
+      <style global>{`
       .page-container{margin-left: 65px;}
       @media (max-width: 768px){
         .page-container{margin-left: 0px;}
