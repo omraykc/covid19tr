@@ -44,7 +44,7 @@ export default function Countries() {
                       <td className="p-2">
                         <div className="d-flex align-center">
                           <span className="mr-1">{i + 1}</span>
-                          <img src={"https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/" + country.CountryCode.toLowerCase() + ".png"} className="flag mr-2"></img>
+                          <img src={"https://corona.lmao.ninja/assets/img/flags/" + country.CountryCode.toLowerCase() + ".png"} className="flag mr-2"></img>
                           <Link href={`/countries/[id]`} as={`/countries/${country.Slug}`}>
                             <span className="country-title">{I18n(country.Country)}</span>
                           </Link>
