@@ -37,7 +37,8 @@ export default function Countries() {
                   <tbody>
 
                     {/* */}
-                    {countries ? countries.Countries && countries.Countries.filter((country) => country.TotalConfirmed >= "1")
+                    {countries ? countries.Countries && countries.Countries
+                    .filter((country) => country.TotalConfirmed >= "1")
                     .sort((a, b) => b.TotalConfirmed - a.TotalConfirmed)
                     .map((country,i) => (
                     <tr className={"fs-14 color-1 fw-5 " + "country-" + country.Slug} key={i}>
