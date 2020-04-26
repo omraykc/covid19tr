@@ -1,26 +1,11 @@
 import Link from 'next/link'
 import useSWR from 'swr'
-import moment from 'moment';
 
 import Layout from '../components/layout';
+
 import { site_title } from '../lib/constants'
 import fetcher from '../lib/fetcher'
-
-const timeConvert = (date) => {
-  var timeDifference = Math.floor(((new Date().getTime() / 1000) - date));
-  var second = timeDifference;
-  var minute = Math.floor(timeDifference / 60);
-  var hour = Math.floor(timeDifference / 3600);
-  var day = Math.floor(timeDifference / 86400);
-  if(second < 60){
-    return "yeni güncellendi";
-  } else if (minute < 60) {
-    return minute + " dk önce güncellendi";
-  } else if (hour < 24)
-    return hour + " sa önce güncellendi";
-  else
-    return day + " g önce güncellendi";
-}
+import Timer from '../lib/timer'
 
 export default function Index() {
   const { data: global } = useSWR("https://corona.lmao.ninja/v2/all", fetcher, { refreshInterval: 60000 })
@@ -32,7 +17,9 @@ export default function Index() {
           <div className="d-flex justify-content-between align-items-center py-4">
             <h5 className="mb-0">{site_title}</h5>
             {global && turkey ?
-            <p className="mb-0 fs-13 text-muted">{timeConvert(moment(global ? global.updated : "").unix())}</p>
+            <p className="mb-0 fs-13 text-muted">
+              <Timer date={global ? global.updated : ""}/>
+            </p>
             : ""}
           </div>
           <hr className="mt-0"></hr>

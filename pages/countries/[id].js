@@ -30,7 +30,7 @@ export default function Countries() {
                 <table className="table table-sm table-centered table-nowrap">
                   <thead>
                     <tr className="fs-11 color-2">
-                      <th className="fw-5 letter-spacing-1 text-uppercase border-0">Tarih</th>
+                      <th className="fw-5 letter-spacing-1 text-uppercase border-0"></th>
                       <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">Onaylanmış</th>
                       <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">İyileşen</th>
                       <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">Ölüm</th>
