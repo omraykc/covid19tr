@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import useSWR from 'swr'
 
-import Layout from '../../components/layout'
+import Layout from '../components/layout'
 
-import { site_title } from '../../lib/constants'
-import I18n from '../../lib/i18n'
-import fetcher from '../../lib/fetcher'
+import { site_title } from '../lib/constants'
+import I18n from '../lib/i18n'
+import fetcher from '../lib/fetcher'
 
 export default function Countries() {
   const { data: countries } = useSWR("https://api.covid19api.com/summary", fetcher, { refreshInterval: 60000 })
