@@ -8,8 +8,8 @@ import fetcher from '../lib/fetcher'
 import Timer from '../lib/timer'
 
 export default function Index() {
-  const { data: global } = useSWR("https://corona.lmao.ninja/v2/all", fetcher, { refreshInterval: 60000 })
-  const { data: turkey } = useSWR("https://corona.lmao.ninja/v2/countries/tr", fetcher, { refreshInterval: 60000 })
+  const { data: global } = useSWR("https://disease.sh/v2/all", fetcher, { refreshInterval: 60000 })
+  const { data: turkey } = useSWR("https://disease.sh/v2/countries/tr", fetcher, { refreshInterval: 60000 })
   return (
     <Layout title="Anasayfa">
       <section>

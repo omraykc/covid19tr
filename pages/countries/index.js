@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import useSWR from 'swr'
 
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
-import { site_title } from '../lib/constants'
-import I18n from '../lib/i18n'
-import fetcher from '../lib/fetcher'
+import { site_title } from '../../lib/constants'
+import I18n from '../../lib/i18n'
+import fetcher from '../../lib/fetcher'
 
 export default function Countries() {
   const { data: countries } = useSWR("https://api.covid19api.com/summary", fetcher, { refreshInterval: 60000 })
@@ -45,7 +45,7 @@ export default function Countries() {
                       <td className="p-2">
                         <div className="d-flex align-center">
                           <span className="mr-1">{i + 1}</span>
-                          <img src={"https://corona.lmao.ninja/assets/img/flags/" + country.CountryCode.toLowerCase() + ".png"} className="flag mr-2"></img>
+                          <img src={"https://disease.sh/assets/img/flags/" + country.CountryCode.toLowerCase() + ".png"} className="flag mr-2"></img>
                           <Link href={`/countries/[id]`} as={`/countries/${country.Slug}`}>
                             <span className="country-title">{I18n(country.Country)}</span>
                           </Link>
