@@ -13,6 +13,7 @@ export default function Index() {
   return (
     <Layout title="Anasayfa">
       <section>
+
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">
             <h5 className="mb-0">{site_title}</h5>
@@ -177,15 +178,15 @@ export default function Index() {
         .bg-light-2{background-color: #edeeef}
         .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
         .landing h1{color:#fff}
-        .landing img{height: 250px;width: 100%;object-fit: cover;object-position: center}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}
         .letter-spacing-1{letter-spacing: 0.2em}
         @media (max-width: 768px){
-          .l-desc{width: 100%}
-          .global-data{padding-bottom: 1.5rem!important;margin-bottom: 1.5rem!important;border-bottom: 1px solid #dee2e6!important;border-right: 0!important}
+        .l-desc{width: 100%}
+        .global-data{padding-bottom: 1.5rem!important;margin-bottom: 1.5rem!important;border-bottom: 1px solid #dee2e6!important;border-right: 0!important}
         }
         `}</style>
+
       </section>
     </Layout>
   )
