@@ -12,16 +12,19 @@ export default function Countries() {
   return (
     <Layout title="Ülkeler">
       <section>
+
+        {/* */}
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">
             <h5 className="mb-0">{site_title} / Ülkeler</h5>
           </div>
           <hr className="mt-0"></hr>
         </div>
+
+        {/* */}
         <div className="container">
           <div className="row">
 
-            {/* */}
             {countries ?
             <div className="col-12">
               <div className="table-responsive">
@@ -36,7 +39,6 @@ export default function Countries() {
                   </thead>
                   <tbody>
 
-                    {/* */}
                     {countries ? countries.Countries && countries.Countries
                     .filter((country) => country.TotalConfirmed >= "1")
                     .sort((a, b) => b.TotalConfirmed - a.TotalConfirmed)
@@ -55,7 +57,7 @@ export default function Countries() {
                       <td className="p-2 text-right">{country.TotalRecovered.toLocaleString()}</td>
                       <td className="p-2 text-right">{country.TotalDeaths.toLocaleString()}</td>
                     </tr>
-                    )) : ""}
+                    )) : null}
 
                   </tbody>
                 </table>
@@ -73,6 +75,7 @@ export default function Countries() {
 
           </div>
         </div>
+
         <style jsx>{`
         .fs-11{font-size:11px}
         .fs-14{font-size:14px}
@@ -89,6 +92,7 @@ export default function Countries() {
         .flag{width:21px}
         .letter-spacing-1{letter-spacing: 0.2em}
         `}</style>
+
       </section>
     </Layout>
   )
