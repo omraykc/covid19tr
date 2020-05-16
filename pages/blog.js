@@ -20,12 +20,13 @@ export default function Blog() {
         </div>
 
         {/* */}
+        {blogs ?
         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="blog-timeline mt-2">
 
-                {blogs ? blogs.items
+                {blogs.items
                 .map((blog) => (
                 <div className="blog-item my-2" key={blog.id}>
                   <div className="media align-items-center pl-3">
@@ -38,16 +39,25 @@ export default function Blog() {
                       <h5 className="mb-0 font-weight-bold fs-15">
                         <a href={blog.url} className="text-dark" target="_blank" rel="external nofollow">{blog.title}</a>
                       </h5>
-                      <p className="fs-14 mt-1 mb-0 d-none d-sm-block">{blog.content.replace(/(<([^>]+)>)/ig, '').substring(0, 90)}...</p>
+                      <p className="fs-14 mt-1 mb-0 d-none d-sm-block">{blog.content.replace(/(<([^>]+)>)/ig,'').substring(0, 90)}...</p>
                     </div>
                   </div>
                 </div>
-                )) : null}
+                ))}
 
               </div>
             </div>
           </div>
         </div>
+        :
+        <div className="pt-5 mt-5">
+          <div className="d-flex justify-content-center align-items-center">
+            <span className="spinner-grow" style={{width: "2rem", height: "2rem"}}>
+              <span className="sr-only">Loading...</span>
+            </span>
+          </div>
+        </div>
+        }
 
         <style jsx>{`
         .fs-15{font-size:15px}
