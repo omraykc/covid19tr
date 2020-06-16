@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
-import moment from 'moment'
 
 import Layout from '../../components/layout'
 
@@ -8,83 +7,92 @@ import { site_title } from '../../lib/constants'
 import I18n from '../../lib/i18n'
 import fetcher from '../../lib/fetcher'
 
-export default function Countries() {
+export default function Country() {
   const router = useRouter()
-  const { data } = useSWR(`https://api.covid19api.com/live/country/${router.query.id}`, fetcher, { refreshInterval: 60000 })
+  const { data: country } = useSWR(`https://disease.sh/v2/countries/${router.query.id}`, fetcher, { refreshInterval: 60000 })
   return (
-    <Layout>
+    <Layout title="Ülkeler">
       <section>
-        <div className="container-fluid">
-          <div className="d-flex justify-content-between align-items-center py-4">
-            <h5 className="mb-0">{site_title} / {router.query.id}</h5>
+
+        {/* */}
+        <div>
+          <div className="d-flex justify-content-between align-items-center py-4 px-4">
+            <h5 className="mb-0">{site_title} / {country ? I18n(country.country) : null}</h5>
           </div>
           <hr className="mt-0"></hr>
         </div>
-        <div className="container">
-          <div className="row">
 
-            {/* */}
-            {data ?
-            <div className="col-12">
-              <div className="table-responsive">
-                <table className="table table-sm table-centered table-nowrap">
-                  <thead>
-                    <tr className="fs-11 color-2">
-                      <th className="fw-5 letter-spacing-1 text-uppercase border-0"></th>
-                      <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">Onaylanmış</th>
-                      <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">İyileşen</th>
-                      <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">Ölüm</th>
-                      <th className="fw-5 letter-spacing-1 text-uppercase border-0 text-right">Tarih</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+        {/* */}
+        {country ?
+        <React.Fragment>
 
-                    {/* */}
-                    {data ? data
-                    .sort((a, b) => new Date(b.Date) - new Date(a.Date))
-                    .map((data,i) => (
-                    <tr className={"fs-14 color-1 fw-5 " +
-                      (moment(data.Date).format("YYYY/MM/DD") === moment(new Date().getTime()).format("YYYY/MM/DD") ? "bg-light-2" : "")}
-                      key={i}>
-                      <td className="p-2">
-                        <span>{I18n(data.Country)}{data.Province ? " - " + data.Province : ""}</span>
-                      </td>
-                      <td className="p-2 text-right">{data.Confirmed.toLocaleString()}</td>
-                      <td className="p-2 text-right">{data.Recovered.toLocaleString()}</td>
-                      <td className="p-2 text-right">{data.Deaths.toLocaleString()}</td>
-                      <td className="p-2 text-right">{moment(data.Date).format("DD.MM.YYYY")}</td>
-                    </tr>
-                    )) : ""}
+          <div className="country-landing position-relative"></div>
+          <div className="container flag-avatar mt-n5">
+            <img src={country ? country.countryInfo.flag : null}/>
+          </div>
 
-                  </tbody>
-                </table>
-              </div>
+          {/* */}
+          <div className="container py-4">
+            <div className="d-flex justify-content-between fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
+              <span>Toplam Vaka Sayısı</span>
             </div>
-            :
-            <div className="col-12 pt-5 mt-5">
-              <div className="d-flex justify-content-center align-items-center">
-                <span className="spinner-grow" style={{width: "2rem", height: "2rem"}}>
-                  <span className="sr-only">Loading...</span>
-                </span>
-              </div>
+            <div className="h2 color-1 mb-0 font-weight-bold">{country.cases.toLocaleString()}</div>
+            <div className="progress my-3" style={{ height: '5px' }}>
+              <div className="progress-bar bg-warning" style={{ width: (country.active / country.cases * 100).toFixed(2) + "%"  }}></div>
+              <div className="progress-bar bg-success" style={{ width: (country.recovered / country.cases * 100).toFixed(2) + "%"  }}></div>
+              <div className="progress-bar bg-secondary" style={{ width: (country.deaths / country.cases * 100).toFixed(2) + "%"  }}></div>
             </div>
-            }
+            {/*
+            cases
+            todayCases
+            deaths
+            todayDeaths
+            recovered
+            todayRecovered
+            active
+            critical
+            casesPerOneMillion
+            deathsPerOneMillion
+            tests
+            testsPerOneMillion
+            population
+            continent
+            oneCasePerPeople
+            oneDeathPerPeople
+            oneTestPerPeople
+            activePerOneMillion
+            recoveredPerOneMillion
+            criticalPerOneMillion
+            */}
+          </div>
 
+        </React.Fragment>
+        :
+        <div className="col-12 pt-5 mt-5">
+          <div className="d-flex justify-content-center align-items-center">
+            <span className="spinner-grow" style={{width: "2rem", height: "2rem"}}>
+              <span className="sr-only">Loading...</span>
+            </span>
           </div>
         </div>
+        }
+
         <style jsx>{`
-        .fs-11{font-size:11px}
+        .fs-12{font-size:12px}
         .fs-14{font-size:14px}
+        .fs-15{font-size:15px}
         .fw-5{font-weight:500}
-        .color-1{color: #364a63}
-        .color-2{color:#5e7ea9}
-        .bg-light-2{background: #f5f5f5;}
-        .table-nowrap th,
-        .table-nowrap td {white-space: nowrap;}
-        .table-centered td,
-        .table-centered th{vertical-align: middle !important;}
-        .letter-spacing-1{letter-spacing: 0.2em}
+        .color-1{color: #364a63;}
+        .color-2{color: #5e7ea9;}
+        summary:focus{outline:0}
+        .outline-0{outline-0}
+        .country-landing{height: 100px;}
+        .country-landing:before{content: ""; position: absolute; background: url(https://cdn-w1.netlify.app/covid19tr/covid19.jpg); width: 100%; height: 100%; background-position: center;}
+        .letter-spacing-1{letter-spacing: 0.3em;}
+        .flag-avatar{z-index: 1;position: relative;}
+        .flag-avatar img{height: 90px; width: 150px; object-fit: cover; border: 4px solid #fff; border-radius: 2px;}
         `}</style>
+
       </section>
     </Layout>
   )
