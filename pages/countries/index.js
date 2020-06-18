@@ -26,23 +26,24 @@ export default function Countries() {
           <div className="row">
 
             {countries ? countries
-            .map((country,i) => (
+            .map((data,i) => (
             <div className="col-12 col-md-6 col-lg-4" key={i}>
               <div className="border rounded-0 mb-3">
                 <div className="position-relative p-3">
 
+                  {/* */}
                   <div className="d-flex justify-content-between">
-                    <h6 className="mb-3 color-2 fw-5">{i + 1} - {I18n(country.country)}</h6>
-                    <img src={country.countryInfo.flag} className="flag-bg"/>
+                    <h6 className="mb-3 color-2 fw-5">{i + 1} - {I18n(data.country)}</h6>
+                    <img src={data.countryInfo.flag} className="flag-bg"/>
                   </div>
-
-                  <div className="d-flex justify-content-between align-items-center fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
-                    <span>Toplam Vaka Sayısı</span>
-                    <Link href={`/countries/[id]`} as={`/countries/${country.country}`}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <span className="fs-9 fw-5 text-muted letter-spacing-1 text-uppercase">Toplam Vaka Sayısı</span>
+                    <Link href={`/countries/[id]`} as={`/countries/${data.countryInfo.iso2 ? data.countryInfo.iso2.toLowerCase() : null}`}>
                       <i className="fas fa-long-arrow-alt-right i-link"></i>
                     </Link>
                   </div>
-                  <div className="h4 color-1 mb-0 font-weight-bold">{country.cases.toLocaleString()}</div>
+                  <div className="h4 color-1 mb-0 font-weight-bold">{data.cases.toLocaleString()}</div>
+
                 </div>
               </div>
             </div>
@@ -60,15 +61,11 @@ export default function Countries() {
         </div>
 
         <style jsx>{`
-        .fs-10{font-size:10px}
-        .fs-11{font-size:11px}
+        .fs-9{font-size:9px}
         .fs-12{font-size:12px}
-        .fs-14{font-size:14px}
-        .fs-15{font-size:15px}
         .fw-5{font-weight:500}
         .color-1{color: #364a63;}
         .color-2{color: #5e7ea9;}
-        summary:focus{outline:0}
         .outline-0{outline-0}
         .i-link{cursor: pointer}
         .letter-spacing-1{letter-spacing: 0.3em;}

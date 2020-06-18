@@ -126,7 +126,7 @@ export default function Index() {
                       <span className="fw-5 fs-14">{turkey.active.toLocaleString()}</span>
                       {turkey.todayCases !== 0 ?
                       <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.todayCases.toLocaleString()}</span>
-                      : ""}
+                      : null}
                     </div>
                   </li>
                   <li className="d-flex justify-content-between border-0 list-group-item p-0 my-2">
@@ -138,7 +138,7 @@ export default function Index() {
                       <span className="fw-5 fs-14">{turkey.recovered.toLocaleString()}</span>
                       {turkey.todayRecovered !== 0 ?
                       <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.todayRecovered.toLocaleString()}</span>
-                      : ""}
+                      : null}
                     </div>
                   </li>
                   <li className="d-flex justify-content-between border-0 list-group-item p-0">
@@ -150,7 +150,7 @@ export default function Index() {
                       <span className="fw-5 fs-14">{turkey.deaths.toLocaleString()}</span>
                       {turkey.todayDeaths !== 0 ?
                       <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.todayDeaths.toLocaleString()}</span>
-                      : ""}
+                      : null}
                     </div>
                   </li>
                 </ul>
@@ -173,15 +173,13 @@ export default function Index() {
         .fs-12{font-size:12px}
         .fs-13{font-size:13px}
         .fs-14{font-size:14px}
-        .fw-3{font-weight:300}
         .fw-5{font-weight:500}
-        .fw-7{font-weight:700}
         .color-1{color: #364a63}
         .color-2{color:#5e7ea9}
         .l-desc{width: 70%}
         .i-link{cursor:pointer}
         .bg-light-2{background-color: #edeeef}
-        .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
+        .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/w/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
         .landing h1{color:#fff}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}

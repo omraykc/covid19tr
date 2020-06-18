@@ -14,17 +14,20 @@ export default function Nav() {
             </div>
           </Link>
           <Link href="/countries">
-            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 " + (router.pathname === "/countries" ? "active" : "")}>
+            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
+              + (router.pathname === "/countries" || router.pathname === "/countries/[id]" ? "active" : "")}>
               <i className="fas fa-globe text-white"></i>
             </div>
           </Link>
           <Link href="/blog">
-            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 " + (router.pathname === "/blog" ? "active" : "")}>
+            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
+              + (router.pathname === "/blog" ? "active" : "")}>
               <i className="fas fa-blog text-white"></i>
             </div>
           </Link>
           <Link href="/info">
-            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 " + (router.pathname === "/info" ? "active" : "")}>
+            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
+              + (router.pathname === "/info" ? "active" : "")}>
               <i className="fas fa-info-circle text-white"></i>
             </div>
           </Link>
@@ -45,6 +48,7 @@ export default function Nav() {
        .s-menu.active:before{height: 30px;width: 30px;top: 13px;left: 9px}
       }
       `}</style>
+
       <style jsx global>{`
       .page-container{margin-left: 65px;}
       @media (max-width: 768px){
