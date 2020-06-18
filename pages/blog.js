@@ -33,7 +33,7 @@ export default function Blog() {
                     <div className="d-flex position-relative align-items-center media-icon">
                       <i className="fas fa-genderless text-dark"></i>
                     </div>
-                    <img src="https://cdn-w1.netlify.app/covid19tr/covid19-blog.jpg"
+                    <img src="https://cdn-w1.netlify.app/w/covid19tr/covid19-blog.jpg"
                       className="mr-3 rounded-1 img-fluid" alt={blog.title} title={blog.title}/>
                     <div className="media-body">
                       <h5 className="mb-0 font-weight-bold fs-15">

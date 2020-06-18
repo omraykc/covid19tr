@@ -14,8 +14,9 @@ export default function Index() {
     <Layout title="Anasayfa">
       <section>
 
-        <div className="container-fluid">
-          <div className="d-flex justify-content-between align-items-center py-4">
+        {/* */}
+        <div>
+          <div className="d-flex justify-content-between align-items-center py-4 px-4">
             <h5 className="mb-0">{site_title}</h5>
             {global && turkey ?
             <p className="mb-0 fs-13 text-muted">
@@ -53,9 +54,6 @@ export default function Index() {
                 <h6 className="mb-3 color-2 fw-5">Dünya</h6>
                 <div className="d-flex justify-content-between fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
                   <span>Toplam Vaka Sayısı</span>
-                  {/*
-                  <span></span>
-                  */}
                 </div>
                 <div className="h2 color-1 mb-0 font-weight-bold">{global.cases.toLocaleString()}</div>
 
@@ -75,7 +73,7 @@ export default function Index() {
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="fw-5 fs-14">{global.active.toLocaleString()}</span>
-                      <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{global.critical.toLocaleString()}</span>
+                      <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{global.todayCases.toLocaleString()}</span>
                     </div>
                   </li>
                   <li className="d-flex justify-content-between border-0 list-group-item p-0 my-2">
@@ -85,6 +83,7 @@ export default function Index() {
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="fw-5 fs-14">{global.recovered.toLocaleString()}</span>
+                      <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{global.critical.toLocaleString()}</span>
                     </div>
                   </li>
                   <li className="d-flex justify-content-between border-0 list-group-item p-0">
@@ -107,7 +106,7 @@ export default function Index() {
                 <h6 className="mb-3 color-2 fw-5">Türkiye</h6>
                 <div className="d-flex justify-content-between align-items-center fs-12 fw-5 text-muted letter-spacing-1 text-uppercase">
                   <span>Toplam Vaka Sayısı</span>
-                  <Link href={`/countries/[id]`} as={`/countries/turkey`}>
+                  <Link href={`/countries/[id]`} as={`/countries/tr`}>
                     <i className="fas fa-long-arrow-alt-right i-link"></i>
                   </Link>
                 </div>
@@ -125,7 +124,9 @@ export default function Index() {
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="fw-5 fs-14">{turkey.active.toLocaleString()}</span>
-                      <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.critical.toLocaleString()}</span>
+                      {turkey.todayCases !== 0 ?
+                      <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.todayCases.toLocaleString()}</span>
+                      : null}
                     </div>
                   </li>
                   <li className="d-flex justify-content-between border-0 list-group-item p-0 my-2">
@@ -135,7 +136,9 @@ export default function Index() {
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="fw-5 fs-14">{turkey.recovered.toLocaleString()}</span>
-
+                      {turkey.todayRecovered !== 0 ?
+                      <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.todayRecovered.toLocaleString()}</span>
+                      : null}
                     </div>
                   </li>
                   <li className="d-flex justify-content-between border-0 list-group-item p-0">
@@ -145,7 +148,9 @@ export default function Index() {
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="fw-5 fs-14">{turkey.deaths.toLocaleString()}</span>
+                      {turkey.todayDeaths !== 0 ?
                       <span className="fw-5 fs-14 ml-2 px-1 bg-light-2">+{turkey.todayDeaths.toLocaleString()}</span>
+                      : null}
                     </div>
                   </li>
                 </ul>
@@ -168,15 +173,13 @@ export default function Index() {
         .fs-12{font-size:12px}
         .fs-13{font-size:13px}
         .fs-14{font-size:14px}
-        .fw-3{font-weight:300}
         .fw-5{font-weight:500}
-        .fw-7{font-weight:700}
         .color-1{color: #364a63}
         .color-2{color:#5e7ea9}
         .l-desc{width: 70%}
         .i-link{cursor:pointer}
         .bg-light-2{background-color: #edeeef}
-        .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
+        .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/w/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
         .landing h1{color:#fff}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}

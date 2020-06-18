@@ -6,6 +6,7 @@ export default function Error() {
   return (
     <Layout title="404">
       <section>
+
         <div className="container-fluid">
           <div className="d-flex justify-content-between align-items-center py-4">
             <h5 className="mb-0">{site_title} / 404</h5>
@@ -24,9 +25,11 @@ export default function Error() {
 
           </div>
         </div>
+
         <style jsx>{`
         .fs-14{font-size:14px}
         `}</style>
+
       </section>
     </Layout>
   )
