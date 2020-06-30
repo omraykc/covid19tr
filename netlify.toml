@@ -1,16 +1,15 @@
-## nextjs build
 [build]
-  command = "npm run build && npm run export"
-  publish = "out"
+command = "npm run build && npm run export"
+publish = "out"
 
 [[redirects]]
-  from = "/countries"
-  to = "/countries.html"
-  status = 200
-  force = true
+from = "/countries"
+to = "/countries.html"
+status = 200
+force = true
 
 [[redirects]]
-  from = "/countries/*"
-  to = "/countries/[id].html"
-  status = 200
-  force = true
+from = "/countries/*"
+to = "/countries/[id].html"
+status = 200
+force = true
