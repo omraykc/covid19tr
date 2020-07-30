@@ -5,12 +5,12 @@ import Layout from '../../components/layout'
 
 import { site_title } from '../../lib/constants'
 import I18n from '../../lib/i18n'
-import fetcher from '../../lib/fetcher'
+import fetch from '../../lib/fetch'
 import Timer from '../../lib/timer'
 
 export default function Country() {
   const router = useRouter()
-  const { data: country } = useSWR(`https://disease.sh/v2/countries/${router.query.id}`, fetcher, { refreshInterval: 60000 })
+  const { data: country } = useSWR(`https://disease.sh/v3/covid-19/countries/${router.query.id}`, fetch, { refreshInterval: 60000 })
   return (
     <Layout title={country ? I18n(country.country) : null}>
       <section>

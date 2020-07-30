@@ -11,7 +11,6 @@ export default function Layout({ title, children }) {
       <Head>
         <title>{title ? title + ' | ' + site_title : site_title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="description" content={site_description}/>
         {/* */}
         <meta property="og:site_name" content={site_title}/>

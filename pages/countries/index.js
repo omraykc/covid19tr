@@ -5,10 +5,10 @@ import Layout from '../../components/layout'
 
 import { site_title } from '../../lib/constants'
 import I18n from '../../lib/i18n'
-import fetcher from '../../lib/fetcher'
+import fetch from '../../lib/fetch'
 
 export default function Countries() {
-  const { data: countries } = useSWR("https://disease.sh/v2/countries?sort=cases", fetcher, { refreshInterval: 60000 })
+  const { data: countries } = useSWR("https://disease.sh/v3/covid-19/countries?sort=cases", fetch, { refreshInterval: 60000 })
   return (
     <Layout title="Ülkeler">
       <section>

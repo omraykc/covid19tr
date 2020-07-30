@@ -4,12 +4,12 @@ import useSWR from 'swr'
 import Layout from '../components/layout';
 
 import { site_title } from '../lib/constants'
-import fetcher from '../lib/fetcher'
+import fetch from '../lib/fetch'
 import Timer from '../lib/timer'
 
 export default function Index() {
-  const { data: global } = useSWR("https://disease.sh/v2/all", fetcher, { refreshInterval: 60000 })
-  const { data: turkey } = useSWR("https://disease.sh/v2/countries/tr", fetcher, { refreshInterval: 60000 })
+  const { data: global } = useSWR("https://disease.sh/v3/covid-19/all", fetch, { refreshInterval: 60000 })
+  const { data: turkey } = useSWR("https://disease.sh/v3/covid-19/countries/tr", fetch, { refreshInterval: 60000 })
   return (
     <Layout title="Anasayfa">
       <section>
