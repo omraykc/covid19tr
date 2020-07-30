@@ -3,10 +3,10 @@ import useSWR from 'swr'
 import Layout from '../components/layout';
 
 import { site_title } from '../lib/constants'
-import fetcher from '../lib/fetcher'
+import fetch from '../lib/fetch'
 
 export default function Blog() {
-  const { data: blogs } = useSWR("https://cdn-w1-api.herokuapp.com/?url=https://sagliktr.net/category/coronavirus/feed", fetcher, { refreshInterval: 60000 })
+  const { data: blogs } = useSWR("https://cdn-w1-api.herokuapp.com/?url=https://sagliktr.net/category/coronavirus/feed", fetch, { refreshInterval: 60000 })
   return (
     <Layout title="Blog">
       <section>
