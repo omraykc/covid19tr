@@ -179,7 +179,7 @@ export default function Index() {
         .l-desc{width: 70%}
         .i-link{cursor:pointer}
         .bg-light-2{background-color: #edeeef}
-        .landing:before{content: "";position: absolute;background: url(https://cdn-w1.netlify.app/w/covid19tr/covid19.jpg);width: 100%;height: 100%;background-position: center;}
+        .landing:before{content: "";position: absolute;background: url(covid19.jpg);width: 100%;height: 100%;background-position: center;}
         .landing h1{color:#fff}
         .thead-dark-2{background:#000;color: #fff;border:0}
         .rounded-1{border-radius:2.5px}

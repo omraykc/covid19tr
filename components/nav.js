@@ -19,12 +19,6 @@ export default function Nav() {
               <i className="fas fa-globe text-white"></i>
             </div>
           </Link>
-          <Link href="/blog">
-            <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
-              + (router.pathname === "/blog" ? "active" : "")}>
-              <i className="fas fa-blog text-white"></i>
-            </div>
-          </Link>
           <Link href="/info">
             <div className={"d-flex s-menu justify-content-center align-items-center px-3 px-md-0 py-2 py-md-3 "
               + (router.pathname === "/info" ? "active" : "")}>
